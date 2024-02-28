@@ -35,26 +35,28 @@
           Add your email below to stay up-to-date with announcements and our
           launch deals.
         </p>
-        <form action="#">
-          <label for="email"></label>
-          <div class="input">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email Address"
-            />
-            <img
-              id="error-icon"
-              src="./images/icon-error.svg"
-              alt
-              aria-hidden="true"
-            />
-            <button type="submit">
-              <img src="./images/icon-arrow.svg" alt />
-            </button>
+        <form id="signup" action="#">
+          <div class="form-field">
+            <div class="input-wrapper">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                autocomplete="off"
+              />
+              <img
+                class="error-icon"
+                src="./images/icon-error.svg"
+                alt
+                aria-hidden="true"
+              />
+              <button type="submit">
+                <img src="./images/icon-arrow.svg" alt />
+              </button>
+            </div>
+            <small class="error">Please provide a valid email</small>
           </div>
-          <p class="error">Please provide a valid email</p>
         </form>
       </section>
     </main>

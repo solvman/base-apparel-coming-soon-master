@@ -4,6 +4,7 @@
 
 :root {
   --color-hsl-primary-300: 0, 36%, 70%;
+  --color-hsl-neutral-500: 0, 43%, 60%;
 
   --color-primary-300: hsl(var(--color-hsl-primary-300));
   --color-primary-400: hsl(0, 93%, 68%);
@@ -24,6 +25,12 @@
     var(--color-neutral-300),
     var(--color-neutral-400)
   );
+  --gradient-secondary-hover: linear-gradient(
+    135deg,
+    var(--color-neutral-300),
+    var(--color-neutral-300)
+  );
+  --shadow: 0px 15px 20px 0px hsla(var(--color-hsl-neutral-500), 0.25);
 
   --font-face-default: "Josefin Sans", sans-serif;
   --font-weight-light: 300;
@@ -32,6 +39,7 @@
 
   --fluid-10-17: clamp(10.825px, 6.185px + 1.2373vi, 17.321px);
   --fluid-14-16: clamp(0.875rem, 0.7857rem + 0.381vi, 1rem);
+  --fluid-16-32: clamp(1rem, 0.2857rem + 3.0476vi, 2rem);
   --fluid-31-75: clamp(1.9375rem, 0.9692rem + 4.1315vi, 4.6875rem);
   --fluid-32-166: clamp(2rem, -0.9489rem + 12.5822vi, 10.375rem);
   --fluid-40-64: clamp(2.5rem, 1.4286rem + 4.5714vi, 4rem);
@@ -78,7 +86,7 @@ body {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   background-image: var(--gradient-primary);
   background-size: cover;
 }
@@ -103,6 +111,7 @@ main {
   text-transform: uppercase;
   line-height: 1.10938;
   letter-spacing: var(--fluid-10-17);
+  margin-top: 4rem;
 }
 
 .content__title span {
@@ -111,37 +120,57 @@ main {
   line-height: 1;
 }
 
-.input {
-  max-width: 445px;
+.content__text {
+  padding-block: var(--fluid-16-32);
+}
+
+.input-wrapper {
   position: relative;
 }
 
-.input input {
+.form-field input {
   width: 100%;
-  padding: 1rem 2rem;
+  height: 56px;
+  padding-inline: 2rem;
   border: 1px solid hsla(var(--color-hsl-primary-300), 0.5);
   border-radius: 2rem;
   color: var(--color-primary-300);
 }
 
-.input input::placeholder {
+.form-field input::placeholder {
   color: hsla(var(--color-hsl-primary-300), 0.5);
 }
 
-.input #error-icon {
+.form-field .error-icon {
   position: absolute;
   top: 50%;
-  right: 1.5rem;
+  right: 7rem;
   transform: translateY(-50%);
 }
 
-.input button {
-  positon: absolute;
-  border: 1px solid red;
+.form-field button {
+  position: absolute;
+  background-image: var(--gradient-secondary);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+
   top: 0;
-  left: 0;
+  right: 0;
   width: 100px;
   height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.form-field button:hover {
+  background-image: var(--gradient-secondary-hover);
+}
+
+.error {
+  color: var(--color-primary-400);
+  font-size: 0.8125rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -174,5 +203,13 @@ main {
 
   .content {
     grid-area: content;
+  }
+
+  .input {
+    max-width: 445px;
+  }
+
+  .error {
+    padding: 0.25rem 2rem;
   }
 }
