@@ -133,19 +133,14 @@ main {
   height: 56px;
   padding-inline: 2rem;
   border: 1px solid hsla(var(--color-hsl-primary-300), 0.5);
+  box-shadow: 0 4 4 0 hsla(0, 0%, 0%, 0.25);
   border-radius: 2rem;
-  color: var(--color-primary-300);
+  color: var(--color-neutral-800);
+  font-weight: var(--font-weight-light);
 }
 
 .form-field input::placeholder {
   color: hsla(var(--color-hsl-primary-300), 0.5);
-}
-
-.form-field .error-icon {
-  position: absolute;
-  top: 50%;
-  right: 7rem;
-  transform: translateY(-50%);
 }
 
 .form-field button {
@@ -168,9 +163,32 @@ main {
   background-image: var(--gradient-secondary-hover);
 }
 
-.error {
+.form-field .error-icon {
+  position: absolute;
+  top: 50%;
+  right: 7rem;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.form-field.error .error-icon {
+  display: block;
+}
+
+.form-field.error input {
+  border-color: var(--color-primary-400);
+}
+
+.form-field.success .error-icon {
+  display: none;
+}
+
+.form-field.success input {
+  border: 1px solid hsla(var(--color-hsl-primary-300), 0.5);
+}
+
+.form-field small {
   color: var(--color-primary-400);
-  font-size: 0.8125rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -209,7 +227,7 @@ main {
     max-width: 445px;
   }
 
-  .error {
+  .form-field small {
     padding: 0.25rem 2rem;
   }
 }
