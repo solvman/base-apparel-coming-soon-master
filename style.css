@@ -3,7 +3,9 @@
 /* Global variables */
 
 :root {
-  --color-primary-300: hsl(0, 36%, 70%);
+  --color-hsl-primary-300: 0, 36%, 70%;
+
+  --color-primary-300: hsl(var(--color-hsl-primary-300));
   --color-primary-400: hsl(0, 93%, 68%);
 
   --color-neutral-100: hsl(0, 0%, 100%);
@@ -30,6 +32,8 @@
 
   --fluid-10-17: clamp(10.825px, 6.185px + 1.2373vi, 17.321px);
   --fluid-14-16: clamp(0.875rem, 0.7857rem + 0.381vi, 1rem);
+  --fluid-31-75: clamp(1.9375rem, 0.9692rem + 4.1315vi, 4.6875rem);
+  --fluid-32-166: clamp(2rem, -0.9489rem + 12.5822vi, 10.375rem);
   --fluid-40-64: clamp(2.5rem, 1.4286rem + 4.5714vi, 4rem);
   --fluid-100-158: clamp(100px, 58.5714px + 11.0476vi, 158px);
 }
@@ -53,23 +57,36 @@ img {
 input,
 button {
   font: inherit;
+  display: block;
+
+  border: none;
+  outline: none;
+  background: none;
 }
 
 /* Global styles */
 body {
   font-family: var(--font-face-default);
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-regular);
   color: var(--color-primary-300);
+  text-align: center;
+  line-height: 1.75;
+}
+
+.wrapper {
+  padding-inline: var(--fluid-32-166);
 }
 
 main {
   height: 100vh;
   background-image: var(--gradient-primary);
+  background-size: cover;
 }
 
 .logo {
   width: var(--fluid-100-158);
   height: auto;
+  padding-block: var(--fluid-31-75);
 }
 
 .hero img {
@@ -94,7 +111,44 @@ main {
   line-height: 1;
 }
 
+.input {
+  max-width: 445px;
+  position: relative;
+}
+
+.input input {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 1px solid hsla(var(--color-hsl-primary-300), 0.5);
+  border-radius: 2rem;
+  color: var(--color-primary-300);
+}
+
+.input input::placeholder {
+  color: hsla(var(--color-hsl-primary-300), 0.5);
+}
+
+.input #error-icon {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+}
+
+.input button {
+  positon: absolute;
+  border: 1px solid red;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 56px;
+}
+
 @media screen and (min-width: 768px) {
+  body {
+    text-align: left;
+  }
+
   main {
     background-image: var(--gradient-primary),
       url("./images/bg-pattern-desktop.svg");
@@ -106,7 +160,7 @@ main {
 
     display: grid;
     grid-template-columns: 58% 42%;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: min-content 1fr;
     grid-template-areas: "header hero" "content hero";
   }
 

@@ -16,7 +16,7 @@
   </head>
   <body>
     <main>
-      <header>
+      <header class="wrapper">
         <img src="./images/logo.svg" alt="Logo" class="logo" />
       </header>
       <section class="hero">
@@ -28,7 +28,7 @@
           <img src="./images/hero-mobile.jpg" alt="Woman in a pink shirt" />
         </picture>
       </section>
-      <section class="content">
+      <section class="content wrapper">
         <h1 class="content__title"><span>We're</span><br />coming<br />soon</h1>
         <p class="content__text">
           Hello fellow shoppers! We're currently building our new fashion store.
@@ -44,7 +44,12 @@
               name="email"
               placeholder="Email Address"
             />
-            <img src="./images/icon-error.svg" alt aria-hidden="true" />
+            <img
+              id="error-icon"
+              src="./images/icon-error.svg"
+              alt
+              aria-hidden="true"
+            />
             <button type="submit">
               <img src="./images/icon-arrow.svg" alt />
             </button>
