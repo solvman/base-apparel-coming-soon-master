@@ -124,7 +124,7 @@ main {
   padding-block: var(--fluid-16-32);
 }
 
-.input-wrapper {
+.form-field .input-wrapper {
   position: relative;
 }
 
