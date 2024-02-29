@@ -146,6 +146,7 @@ main {
 .form-field button {
   position: absolute;
   background-image: var(--gradient-secondary);
+  background-blend-mode: overlay;
   border-radius: 2rem;
   box-shadow: var(--shadow);
 
@@ -157,10 +158,11 @@ main {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .form-field button:hover {
-  background-image: var(--gradient-secondary-hover);
+  background-color: hsla(0, 0%, 100%, 0.35);
 }
 
 .form-field .error-icon {
