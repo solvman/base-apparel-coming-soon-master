@@ -124,6 +124,10 @@ main {
   padding-block: var(--fluid-16-32);
 }
 
+.content {
+  padding-bottom: 4rem;
+}
+
 .form-field .input-wrapper {
   position: relative;
 }
@@ -131,7 +135,8 @@ main {
 .form-field input {
   width: 100%;
   height: 56px;
-  padding-inline: 2rem;
+  padding-left: 2rem;
+  padding-right: 9rem;
   border: 1px solid hsla(var(--color-hsl-primary-300), 0.5);
   box-shadow: 0 4 4 0 hsla(0, 0%, 0%, 0.25);
   border-radius: 2rem;
