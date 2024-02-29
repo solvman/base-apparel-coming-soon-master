@@ -97,6 +97,11 @@ main {
   padding-block: var(--fluid-31-75);
 }
 
+.hero {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 .hero img {
   width: 100%;
   height: 100%;
